@@ -1,0 +1,31 @@
+/* Style for the image */
+.about-image {
+    width: 100%;
+    max-width: 400px;
+    /* Adjust max-width as needed */
+    height: auto;
+    margin-bottom: 20px;
+    /* Add some space below the image */
+}
+
+/* Style for the text content */
+.about-text {
+    text-align: justify;
+    font-size: 16px;
+    line-height: 1.6;
+    /* Adjust line height for better readability */
+}
+
+/* Style for the container */
+.about-container {
+    padding: 20px;
+    /* Add padding around the content */
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .about-image {
+        max-width: 100%;
+        /* Make image responsive on smaller screens */
+    }
+}

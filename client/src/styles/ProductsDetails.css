@@ -1,0 +1,131 @@
+/* ProductsDetails.css */
+.container{
+    margin-top: 70px;
+}
+
+.product-details {
+    margin-top: 100px !important;
+}
+
+.product-details img {
+    width: auto;
+    /* Set fixed width */
+    height: 300px;
+    /* Set fixed height */
+    object-fit: cover;
+    /* Maintain aspect ratio */
+}
+
+
+
+.product-details-info h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.product-details-info h6 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.product-details-info button {
+    background-color: #ff9900;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-details-info button:hover {
+    background-color: #ff6600;
+}
+
+.similar-products {
+    margin-top: 50px;
+}
+
+.similar-products h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.card {
+    width: 200px;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.card-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.card-price {
+    color: #ff6600;
+}
+
+.card-text {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.btn-info {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-info:hover {
+    background-color: #0056b3;
+}
+
+/* Adjustments for small screens */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .product-details {
+        display: flex;
+        flex-direction: column;
+        
+        text-align: center;
+    }
+
+    .product-details img {
+        width: 12rem;
+        /* Adjust to full width on small screens */
+        height: auto;
+        /* Auto height to maintain aspect ratio */
+    }
+
+    .product-details-info {
+        font-size: 10px;
+    }
+
+    .similar-products {
+        margin-top: 30px;
+    }
+
+    .card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+        .product-details-info h6 {
+            font-size: 10px;
+            margin-bottom: 5px;
+        }
+}
