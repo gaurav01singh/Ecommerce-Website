@@ -87,7 +87,3 @@ BRAINTREE_PRIVATE_KEY =
 ## Contributing
 
 Feel free to fork this repository and contribute by submitting pull requests. Please ensure that your code adheres to the project's coding standards.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
