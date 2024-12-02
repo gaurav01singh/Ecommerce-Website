@@ -61,11 +61,11 @@ This repository contains the code for a full-stack e-commerce website built usin
 
     ```env
     PORT = 8080
-MONGO_URL = 
-JWT_SECRET = 
-BRAINTREE_MERCHANT_ID =
-BRAINTREE_PUBLIC_KEY = 
-BRAINTREE_PRIVATE_KEY = 
+    MONGO_URL = 
+    JWT_SECRET = 
+    BRAINTREE_MERCHANT_ID =
+    BRAINTREE_PUBLIC_KEY = 
+    BRAINTREE_PRIVATE_KEY = 
     ```
 
 4. **Run the application**:
