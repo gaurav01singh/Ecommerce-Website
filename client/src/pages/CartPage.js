@@ -79,7 +79,7 @@ const CartPage = () => {
   };
   return (
     <Layout>
-      <div className=" cart-page">
+      <div className="cart-page">
         <div className="row">
           <div className="col-md-12">
             <h1 className="text-center bg-light p-2 mb-1">
@@ -96,7 +96,7 @@ const CartPage = () => {
             </h1>
           </div>
         </div>
-        <div className="container">
+        <div className="container" style={{ maxWidth: "75%" }}>
           <div className="row">
             <div className="col-md-7  p-0 m-0">
               {cart?.map((p) => (
@@ -106,8 +106,12 @@ const CartPage = () => {
                       src={`https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-photo/${p._id}`}
                       className="card-img-top"
                       alt={p.name}
-                      width={"100%"}
-                      height={"130px"}
+                      style={{
+                        height: "200px",
+                        width: "100%",
+                        objectFit: "scale-down",
+                        borderBottom:"none",
+                      }}
                     />
                   </div>
                   <div className="col-md-4">
@@ -126,7 +130,7 @@ const CartPage = () => {
                 </div>
               ))}
             </div>
-            <div className="col-md-5 cart-summary">
+            <div className="col-md-5 cart-summary" style={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
               <h2>Cart Summary</h2>
               <p>Total | Checkout | Payment</p>
               <hr />

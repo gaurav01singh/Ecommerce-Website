@@ -24,7 +24,9 @@ const HomePage = () => {
   //get all cat
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("https://ecommerce-website-beta-inky.vercel.app/api/v1/category/get-category");
+      const { data } = await axios.get(
+        "https://ecommerce-website-beta-inky.vercel.app/api/v1/category/get-category"
+      );
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -40,7 +42,9 @@ const HomePage = () => {
   const getAllProducts = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(
+        `https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-list/${page}`
+      );
       setLoading(false);
       setProducts(data.products);
     } catch (error) {
@@ -51,7 +55,9 @@ const HomePage = () => {
   //getTOtal COunt
   const getTotal = async () => {
     try {
-      const { data } = await axios.get("https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-count");
+      const { data } = await axios.get(
+        "https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-count"
+      );
       setTotal(data?.total);
     } catch (error) {}
   };
@@ -65,7 +71,9 @@ const HomePage = () => {
   const loadMore = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(
+        `https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-list/${page}`
+      );
       setLoading(false);
       setProducts([...products, ...data?.products]);
     } catch (error) {
@@ -95,10 +103,13 @@ const HomePage = () => {
   //get filtered product
   const filterProduct = async () => {
     try {
-      const { data } = await axios.post("https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-filters", {
-        checked,
-        radio,
-      });
+      const { data } = await axios.post(
+        "https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-filters",
+        {
+          checked,
+          radio,
+        }
+      );
       setProducts(data?.products);
     } catch (error) {}
   };
@@ -161,45 +172,53 @@ const HomePage = () => {
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
-              <div className="card m-2" key={p._id}>
-                <img
-                  src={`https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-photo/${p._id}`}
-                  className="card-img-top"
-                  alt={p.name}
-                />
-                <div className="card-body">
-                  <div className="card-name-price">
-                    <h5 className="card-title">{p.name}</h5>
-                    <h5 className="card-title card-price">
-                      {p.price.toLocaleString("en-US", {
-                        style: "currency",
-                        currency: "INR",
-                      })}
-                    </h5>
-                  </div>
+              <div class="card" key={p._id}>
+                <div class="card-block">
+                  <img
+                    src={`https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-photo/${p._id}`}
+                    className="card-img-top"
+                    alt={p.name}
+                    style={{
+                      // height: "200px",
+                      // width: "100%",
+                      objectFit: "scale-down",
+                    }}
+                  />
+                  <div className="card-body">
+                  <h5 className="card-title">{p.name}</h5>
+                  <h5 className="card-title card-price">
+                    {p.price.toLocaleString("en-US", {
+                      style: "currency",
+                      currency: "INR",
+                    })}
+                  </h5>
                   <p className="card-text ">
                     {p.description.substring(0, 60)}...
                   </p>
-                  <div className="card-name-price">
-                    <button
-                      className="btn btn-info ms-1"
-                      onClick={() => navigate(`/product/${p.slug}`)}
-                    >
-                      More Details
-                    </button>
-                    <button
-                      className="btn btn-dark ms-1"
-                      onClick={() => {
-                        setCart([...cart, p]);
-                        localStorage.setItem(
-                          "cart",
-                          JSON.stringify([...cart, p])
-                        );
-                        toast.success("Item Added to cart");
-                      }}
-                    >
-                      ADD TO CART
-                    </button>
+                    </div>
+
+                  <div className="card m-2">
+                    <div className="card-name-price">
+                      <button
+                        className="btn btn-info ms-1"
+                        onClick={() => navigate(`/product/${p.slug}`)}
+                      >
+                        More Details
+                      </button>
+                      <button
+                        className="btn btn-dark ms-1"
+                        onClick={() => {
+                          setCart([...cart, p]);
+                          localStorage.setItem(
+                            "cart",
+                            JSON.stringify([...cart, p])
+                          );
+                          toast.success("Item Added to cart");
+                        }}
+                      >
+                        ADD TO CART
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

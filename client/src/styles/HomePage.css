@@ -1,10 +1,15 @@
+/* *{
+    font-family: "Playfair Display", serif;
+} */
+
 .banner-img {
     margin-top: 60px;
 }
 
 .home-page h1 {
     color: gray;
-    font-family: "Playfair Display", serif;
+    /* font-family: "Playfair Display", serif; */
+    font-weight: 700;
 }
 
 .home-page {
@@ -41,9 +46,9 @@
     color: rgb(90, 89, 89);
 }
 
-.home-page .card img:hover {
+/* .home-page .card img:hover {
     transform: scale(0.9);
-}
+} */
 
 .home-page .card-img-top {
     height: 300px !important;
@@ -56,7 +61,8 @@ filters
     margin-top: 100px;
     color: gray !important;
     border-bottom: 1px solid rgba(128, 128, 128, 0.337);
-    font-family: "Playfair Display", serif;
+    /* font-family: "Playfair Display", serif; */
+    font-weight: 700;
 }
 
 .ant-checkbox-wrapper:first-of-type {
@@ -247,3 +253,166 @@ body {
 
         } */
 }
+
+.card img{
+    height:200px;
+    width:100%;
+  }
+  .icon i{
+    font-size:20px;
+    color:#ffa710;
+    cursor:pointer;
+    transition:all .4s ease-in;
+  }
+  .card{
+    cursor:pointer;
+    transition:all .4s ease-in-out;
+  }
+  .card:hover{
+    transform:scale(1.05);
+    box-shadow:10px 10px 10px #888888;
+  }
+  .icon i:hover{
+    transform:scale(1.25) rotate(100deg);
+    color:#18d4ca;
+  }
+  
+  .close{
+    color:#ffa710;
+    opacity:1;
+  }
+  .modal-lg{
+    max-width:1200px;
+  }
+  .save{
+    background-color: #667df3;
+    font-size:14px;
+  }
+  .form-control::placeholder{
+  /*   font-size:14px; */
+    opacity:.5;
+  }
+  .modal-logo img{
+    width:100%;
+    height:150px
+  }
+  .col-form-label{
+    font-weight:500;
+  }
+  .ovrly {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.5);
+       height:150px;
+      left: 1;
+      top: 0;
+      width: 85%;
+      opacity: 0;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s;
+    }
+   .modal-logo:hover .ovrly {
+      opacity: 1;
+    }
+  .img-buttons {
+    position: absolute;
+      top: 50%;
+      left: 50%;
+     -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+  }
+  .img-buttons .material-icons{
+    opacity: 0;
+    color: rgba(50, 50, 50, 0.9);
+    background: rgb(256, 256, 256);
+    font-size: 30px;
+        text-align: center;
+        text-decoration: none;
+    border-radius: 50%;
+  }
+  .modal-logo:hover .img-buttons .material-icons{
+      opacity: 1;
+    }
+  /* MODAL ANIMATION */
+  
+  @keyframes bounce {
+    from, 20%, 53%, 80%, to {
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      transform: translate3d(0,0,0);
+    }
+  
+    40%, 43% {
+      animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+      transform: translate3d(0, -30px, 0);
+    }
+  
+    70% {
+      animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+      transform: translate3d(0, -15px, 0);
+    }
+  
+    90% {
+      transform: translate3d(0,-4px,0);
+    }
+  }
+  
+  
+  .animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }
+  .bounce {
+    animation-name: bounce;
+    transform-origin: center bottom;
+  }
+  @keyframes bounceInLeft {
+    from, 60%, 75%, 90%, to {
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+  
+    0% {
+      opacity: 0;
+      transform: translate3d(-3000px, 0, 0);
+    }
+  
+    60% {
+      opacity: 1;
+      transform: translate3d(25px, 0, 0);
+    }
+  
+    75% {
+      transform: translate3d(-10px, 0, 0);
+    }
+  
+    90% {
+      transform: translate3d(5px, 0, 0);    
+    }
+  
+    to {
+      transform: none;
+    }
+  }
+  
+  .bounceInLeft {
+    animation-name: bounceInLeft;
+  }
+  
+  /* animated text */
+  .animated-text{
+    animation: changefontcolor 2s ease-in-out infinite;
+  }
+  @keyframes changefontcolor {
+    0%{
+      color:black;
+    }
+    50%{
+      color:red;
+    }
+    100%{
+      color:purple;
+    }
+  }
