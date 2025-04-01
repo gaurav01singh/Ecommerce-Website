@@ -11,7 +11,7 @@ const Orders = () => {
 
   const getOrders = async () => {
     try {
-      const { data } = await axios.get("/api/v1/auth/orders");
+      const { data } = await axios.get("https://ecommerce-website-beta-inky.vercel.app/api/v1/auth/orders");
       setOrders(data);
     } catch (error) {}
   };
@@ -59,7 +59,7 @@ const Orders = () => {
                       <div className="row m-2 card flex-row">
                         <div className="col-md-4">
                           <img
-                            src={`/api/v1/product/product-photo/${p._id}`}
+                            src={`https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-photo/${p._id}`}
                             className="card-img-top"
                             alt={p.name}
                             width="100px"

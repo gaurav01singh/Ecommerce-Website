@@ -27,9 +27,9 @@ app.use(express.json());
 // app.use(express.static(path.join(__dirname, "./client/build")));
 
 //routes
-app.use("/api/v1/auth", authroutes);
-app.use("/api/v1/category", categoryRoutes);
-app.use("/api/v1/product", productRoutes);
+app.use("https://ecommerce-website-beta-inky.vercel.app/api/v1/auth", authroutes);
+app.use("https://ecommerce-website-beta-inky.vercel.app/api/v1/category", categoryRoutes);
+app.use("https://ecommerce-website-beta-inky.vercel.app/api/v1/product", productRoutes);
 
 //rest api
 // app.use("*", function (req, res) {
