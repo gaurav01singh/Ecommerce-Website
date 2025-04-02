@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-  "vercel-build": "npm install",
+    "vercel-build": "npm install",
     "server": "nodemon server.js",
     "client": "npm start --prefix ./client",
     "dev": "concurrently \"npm run start\" \"npm run client\""
@@ -32,7 +32,9 @@
     "mongoose": "^8.2.4",
     "morgan": "^1.10.0",
     "react-icons": "^5.0.1",
+    "react-slick": "^0.30.3",
     "rimraf": "^5.0.7",
+    "slick-carousel": "^1.8.1",
     "slugify": "^1.6.6"
   }
 }

@@ -91,7 +91,7 @@ const ProductDetails = () => {
                   <h5 className="card-title card-price">
                     {p.price.toLocaleString("en-US", {
                       style: "currency",
-                      currency: "USD",
+                      currency: "INR",
                     })}
                   </h5>
                 </div>

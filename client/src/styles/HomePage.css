@@ -1,68 +1,218 @@
-/* *{
-    font-family: "Playfair Display", serif;
-} */
+/* General Styles */
+body {
+  background: linear-gradient(135deg, #f0f0f0, #dfe9f3);
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
 
+/* Banner Image */
 .banner-img {
-    margin-top: 60px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
 }
 
-.home-page h1 {
-    color: gray;
-    /* font-family: "Playfair Display", serif; */
-    font-weight: 700;
+/* Filters Panel */
+.filters {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.home-page {
-    display: flex;
-    flex-wrap: wrap;
+.filter-btn {
+  background: linear-gradient(45deg, #ff6b6b, #f94d6a);
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.home-page .card {
-    background-color: rgba(128, 128, 128, 0.097);
-    width: 18rem;
+.filter-btn:hover {
+  background: linear-gradient(45deg, #f94d6a, #ff4757);
 }
 
-.home-page .card-name-price {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+/* Kids Section */
+.Kids-section {
+  background: #fff7f0;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.home-page .card-price {
-    color: green;
-    font-weight: bold;
+.Kids-section .text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff6b6b;
+}
+.Products-section {
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  display: flex;
+  /* align-items: center; */
+  max-height: 400px;
+  width: 500px;
+  overflow-y: auto;
 }
 
-.home-page button {
-    border-radius: 0;
-    width: 100%;
-    border-top-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
+/* Cards */
+.card {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  /* padding: 15px;
+  margin: 15px; */
+  transition: transform 0.3s ease-in-out;
+  min-width: 250px;
 }
 
-.home-page .card-text {
-    color: rgb(90, 89, 89);
+.card:hover {
+  transform: scale(1.05);
 }
 
-/* .home-page .card img:hover {
-    transform: scale(0.9);
-} */
+.card img {
+  border-radius: 10px;
+  /* height: 200px; */
+  object-fit: cover;
+}
 
-.home-page .card-img-top {
-    height: 300px !important;
+/* Card Text */
+.card-title {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.card-price {
+  color: #ff4757;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Buttons */
+.btn-info {
+  background: linear-gradient(45deg, #1e90ff, #007bff);
+  color: #fff;
+  border: none;
+}
+
+.btn-info:hover {
+  background: linear-gradient(45deg, #007bff, #0056b3);
+}
+
+.btn-dark {
+  background: linear-gradient(45deg, #343a40, #23272b);
+  color: #fff;
+  border: none;
+}
+
+.btn-dark:hover {
+  background: linear-gradient(45deg, #23272b, #1d2124);
+}
+
+/* Load More Button */
+.loadmore {
+  background: linear-gradient(45deg, #28a745, #218838);
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.loadmore:hover {
+  background: linear-gradient(45deg, #218838, #1e7e34);
+}
+.css-carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease;
+  animation: slide 15s infinite;
+}
+
+.carousel-slide {
+  min-width: 100%;
+}
+.banner-img{
+  max-height: 45rem;
+  object-fit: cover;
+  margin-top: 75px;
+}
+
+@keyframes slide {
+  0%, 20% {
+    transform: translateX(0);
+  }
+  20%, 40% {
+    transform: translateX(-100%);
+  }
+  40%, 60% {
+    transform: translateX(-200%);
+  }
+  60%, 80% {
+    transform: translateX(-300%);
+  }
+  100%, 0% {
+    transform: translateX(-400%);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .card {
+    max-width: 100%;
+  }
+
+  .Kids-section {
+    text-align: center;
+  }
 }
 
 /* ==================
 filters
 ============== */
 .filters h4 {
-    margin-top: 100px;
+    /* margin-top: 100px; */
     color: gray !important;
     border-bottom: 1px solid rgba(128, 128, 128, 0.337);
     /* font-family: "Playfair Display", serif; */
     font-weight: 700;
+}
+.filter-btn {
+  position: sticky;
+  bottom: 20px;
+  z-index: 1000;
+  max-width: 200px;
+  padding: 10px 20px;
+  border-radius: 50px;
+}
+
+.filters-panel {
+  position: fixed;
+  top: 35%;
+  right: -300px;
+  width: 250px;
+  background: white;
+  padding: 15px;
+  transition: 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  z-index: 999;
+}
+
+.filters-panel.show {
+  right: 20px;
 }
 
 .ant-checkbox-wrapper:first-of-type {
