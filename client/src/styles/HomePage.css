@@ -42,6 +42,7 @@ body {
   margin: 20px 0;
   display: flex;
   align-items: center;
+  justify-content: space-around;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -56,8 +57,8 @@ body {
   margin: 20px 0;
   display: flex;
   /* align-items: center; */
-  max-height: 400px;
-  width: 500px;
+  /* max-height: 400px; */
+  width: auto;
   overflow-y: auto;
 }
 
