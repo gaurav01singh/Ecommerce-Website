@@ -152,21 +152,21 @@ body {
 }
 
 @keyframes slide {
-  0%, 20% {
+  0%, 15% {
     transform: translateX(0);
   }
-  20%, 40% {
+  25%, 40% {
     transform: translateX(-100%);
   }
-  40%, 60% {
+  55%, 70% {
     transform: translateX(-200%);
   }
-  60%, 80% {
+  85%, 100% {
     transform: translateX(-300%);
   }
-  100%, 0% {
+  /* 85%,100% {
     transform: translateX(-400%);
-  }
+  } */
 }
 
 /* Mobile Responsive */
