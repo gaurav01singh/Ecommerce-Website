@@ -19,7 +19,7 @@ const HomePage = () => {
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [showFilters, setShowFilters] = useState(true); // State to manage filter visibility
+  const [showFilters, setShowFilters] = useState(false); // State to manage filter visibility
   const [kidsProducts, setKidsProducts] = useState([]);
   const [banners] = useState([
     "/images/banner1.jpg",
@@ -152,7 +152,7 @@ const HomePage = () => {
   </div>
 </div>
           <button
-            className="btn btn-primary filter-btn"
+            className={`btn btn-primary filter-btn ${showFilters ? "show" : ""}`}
             onClick={() => setShowFilters(!showFilters)}
           >
             {showFilters ? "✖ Close Filters" : "☰ Filters"}
@@ -166,7 +166,15 @@ const HomePage = () => {
 
           {/* Filters */}
           <div className={`filters-panel ${showFilters ? "show" : ""}`}>
-            <h4 className="text-center">Filter By Category</h4>
+            <div className="d-flex justify-content-between align-items-center">
+              <h4 className="text-center">Filters</h4>
+              <button
+                className="btn btn-danger"
+                onClick={() => setShowFilters(false)}
+              >
+                ✖
+              </button>
+              </div>
             <div className="d-flex flex-column">
               {categories?.map((c) => (
                 <Checkbox

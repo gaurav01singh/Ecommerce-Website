@@ -192,17 +192,30 @@ filters
 }
 .filter-btn {
   position: sticky;
+  display: block;
   bottom: 20px;
   z-index: 1000;
   max-width: 200px;
   padding: 10px 20px;
   border-radius: 50px;
 }
+.filter-btn:hover {
+  background: linear-gradient(45deg, #ff4757, #ff6b6b);
+  color: #fff;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.filter-btn.show {
+  display: none;
+
+  
+}
 
 .filters-panel {
   position: fixed;
   top: 35%;
-  right: -300px;
+  left: -250px;
   width: 250px;
   background: white;
   padding: 15px;
@@ -213,7 +226,7 @@ filters
 }
 
 .filters-panel.show {
-  right: 20px;
+  left: 0;
 }
 
 .ant-checkbox-wrapper:first-of-type {
@@ -566,4 +579,19 @@ body {
     100%{
       color:purple;
     }
+  }
+  /*More smoothly*/
+  .loadmore {
+    background: linear-gradient(45deg, #28a745, #218838);
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+  }
+  .loadmore:hover {
+    background: linear-gradient(45deg, #218838, #1e7e34);
+    transform: scale(1.05);
   }

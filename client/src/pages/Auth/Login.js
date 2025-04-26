@@ -38,10 +38,13 @@ const Login = () => {
   };
   return (
     <Layout title="Login -Ecommerce App">
-      <div className="form-container">
-        <form onSubmit={handleSubmit}>
+      <div className="form-container" >
+        <form onSubmit={handleSubmit} style={{ borderRadius: "10px" }} >
           <h1>Login Page</h1>
-          <div className="mb-3">
+          <div className="mb-3" >
+            <label htmlFor="exampleInputEmail1" className="form-label">
+              Email address
+            </label>
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -53,6 +56,9 @@ const Login = () => {
             />
           </div>
           <div className="mb-3">
+            <label htmlFor="exampleInputPassword1" className="form-label">
+              Password
+            </label>
             <input
               value={password}
               onChange={(e) => setPassword(e.target.value)}

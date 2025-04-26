@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 70vh;
+    min-height: 100vh;
     flex-direction: column;
     background-color: #ffdee9;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -33,5 +33,10 @@
 .form-control:focus {
     outline: none;
     border-color: rgb(0, 0, 0);
+}
+
+.form-container form{
+    width: 50vh;
+
 }
 

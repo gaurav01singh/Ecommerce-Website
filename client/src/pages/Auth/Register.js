@@ -36,10 +36,13 @@ const Register = () => {
   };
   return (
     <Layout title="Register -Ecommerce App">
-      <div className="form-container">
-        <form onSubmit={handleSubmit}>
+      <div className="form-container" style={{ minHeight: "100vh",maiWidth: "500px" }}>
+        <form onSubmit={handleSubmit} style={{ borderRadius:"10px" }} className="auth-form">
           <h1>Register Page</h1>
           <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" className="form-label">
+              Name
+            </label>
             <input
               placeholder="Name"
               value={name}
@@ -51,6 +54,9 @@ const Register = () => {
             />
           </div>
           <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" className="form-label">
+              Email address
+            </label>
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -62,6 +68,9 @@ const Register = () => {
             />
           </div>
           <div className="mb-3">
+            <label htmlFor="exampleInputPassword1" className="form-label">
+              Password
+            </label>
             <input
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -73,6 +82,9 @@ const Register = () => {
             />
           </div>
           <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" className="form-label">
+              Phone No.
+            </label>
             <input
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
@@ -84,6 +96,9 @@ const Register = () => {
             />
           </div>
           <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" className="form-label">
+              Address
+            </label>
             <input
               value={address}
               onChange={(e) => setAddress(e.target.value)}
@@ -95,10 +110,13 @@ const Register = () => {
             />
           </div>
           <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" className="form-label">
+              What is your pet name?
+            </label>
             <input
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
-              placeholder="Your dog name?"
+              placeholder="Your pet name?"
               type="text"
               className="form-control"
               id="exampleInputEmail1"

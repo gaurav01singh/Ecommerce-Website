@@ -33,10 +33,13 @@ const ForgotPassword = () => {
   };
   return (
     <Layout title="Forgot Password-Ecommerce App">
-      <div className="form-container">
-        <form onSubmit={handleSubmit}>
+      <div className="form-container" >
+        <form onSubmit={handleSubmit} style={{ borderRadius: "10px" }} className="auth-form">
           <h1>Reset Password</h1>
           <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" className="form-label">
+              Email address
+            </label>
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -48,6 +51,10 @@ const ForgotPassword = () => {
             />
           </div>
           <div className="mb-3">
+
+            <label htmlFor="exampleInputEmail1" className="form-label">
+              What is your pet name?
+            </label>
             <input
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
@@ -59,6 +66,10 @@ const ForgotPassword = () => {
             />
           </div>
           <div className="mb-3">
+
+            <label htmlFor="exampleInputPassword1" className="form-label">
+              New Password
+            </label>
             <input
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
