@@ -12,6 +12,7 @@ import ForgotPassword from "./pages/Auth/ForgotPassword";
 import AdminRoute from "./components/Routes/AdminRoute";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import CreateCategary from "./pages/Admin/CreateCategary";
+import CreateSubCategory from "./pages/Admin/CreateSubCategory";
 import CreateProduct from "./pages/Admin/CreateProduct";
 import Users from "./pages/Admin/Users";
 import Orders from "./pages/user/Orders";
@@ -24,6 +25,7 @@ import Categories from "./pages/Categories";
 import CategoryProduct from "./pages/CategoryProduct";
 import CartPage from "./pages/CartPage";
 import AdminOrders from "./pages/Admin/AdminOrders";
+import SubCategoryProduct from "./pages/SubCategoryProduct";
 
 function App() {
   return (
@@ -34,6 +36,7 @@ function App() {
         <Route path="/categories" element={<Categories />}></Route>
         <Route path="/cart" element={<CartPage />}></Route>
         <Route path="/category/:slug" element={<CategoryProduct />}></Route>
+        <Route path="/subcategory/:slug" element={<SubCategoryProduct />}></Route>
         <Route path="/search" element={<Search />}></Route>
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />
@@ -43,6 +46,7 @@ function App() {
         <Route path="/dashboard" element={<AdminRoute />}>
           <Route path="admin" element={<AdminDashboard />} />
           <Route path="admin/create-category" element={<CreateCategary />} />
+          <Route path="admin/create-subcategory" element={<CreateSubCategory />} />
           <Route path="admin/create-product" element={<CreateProduct />} />
           <Route path="admin/product/:slug" element={<UpdateProduct />} />
           <Route path="admin/products" element={<Products />} />

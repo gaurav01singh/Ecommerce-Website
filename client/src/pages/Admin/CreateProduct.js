@@ -21,7 +21,7 @@ const CreateProduct = () => {
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("https://ecommerce-website-beta-inky.vercel.app/api/v1/category/get-category");
+      const { data } = await axios.get(" https://ecommerce-website-beta-inky.vercel.app/api/v1/category/get-category");
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -46,7 +46,7 @@ const CreateProduct = () => {
       productData.append("photo", photo);
       productData.append("category", category);
       const { data } = axios.post(
-        "https://ecommerce-website-beta-inky.vercel.app/api/v1/product/create-product",
+        " https://ecommerce-website-beta-inky.vercel.app/api/v1/product/create-product",
         productData
       );
       if (data?.success) {

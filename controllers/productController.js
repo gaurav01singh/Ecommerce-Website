@@ -2,6 +2,8 @@ import productModel from "../models/ProductModel.js";
 import categoryModel from "../models/categorymodel.js";
 import orderModel from "../models/orderModel.js";
 
+import subCategoryModel from "../models/subCategoryModel.js";
+
 import fs from "fs";
 import slugify from "slugify";
 import braintree from "braintree";
@@ -19,7 +21,7 @@ var gateway = new braintree.BraintreeGateway({
 
 export const createProductController = async (req, res) => {
   try {
-    const { name, description, price, category, quantity, shipping } =
+    const { name, description, price, category,subCategory, quantity, shipping } =
       req.fields;
     const { photo } = req.files;
     //alidation
@@ -28,6 +30,8 @@ export const createProductController = async (req, res) => {
         return res.status(500).send({ error: "Name is Required" });
       case !description:
         return res.status(500).send({ error: "Description is Required" });
+      case !subCategory:
+        return res.status(500).send({ error: "SubCategory is Required" });
       case !price:
         return res.status(500).send({ error: "Price is Required" });
       case !category:
@@ -66,6 +70,7 @@ export const getProductController = async (req, res) => {
     const products = await productModel
       .find({})
       .populate("category")
+      .populate("subCategory")
       .select("-photo")
       .limit(12)
       .sort({ createdAt: -1 });
@@ -89,7 +94,8 @@ export const getSingleProductController = async (req, res) => {
     const product = await productModel
       .findOne({ slug: req.params.slug })
       .select("-photo")
-      .populate("category");
+      .populate("category")
+      .populate("subCategory");
     res.status(200).send({
       success: true,
       message: "Single Product Fetched",
@@ -141,7 +147,7 @@ export const deleteProductController = async (req, res) => {
 //upate producta
 export const updateProductController = async (req, res) => {
   try {
-    const { name, description, price, category, quantity, shipping } =
+    const { name, description, price, category,subCategory, quantity, shipping } =
       req.fields;
     const { photo } = req.files;
     //alidation
@@ -154,6 +160,8 @@ export const updateProductController = async (req, res) => {
         return res.status(500).send({ error: "Price is Required" });
       case !category:
         return res.status(500).send({ error: "Category is Required" });
+      case !subCategory:
+        return res.status(500).send({ error: "SubCategory is Required" });
       case !quantity:
         return res.status(500).send({ error: "Quantity is Required" });
       case photo && photo.size > 1000000:
@@ -305,6 +313,27 @@ export const productCategoryController = async (req, res) => {
     res.status(200).send({
       success: true,
       category,
+      products,
+    });
+  } catch (error) {
+    res.status(400).send({
+      success: false,
+      error,
+      message: "Error While Getting products",
+    });
+  }
+};
+
+//get product by subcategory
+export const productSubCategoryController = async (req, res) => {
+  try {
+    const subCategory = await subCategoryModel.findOne({ slug: req.params.slug });
+    const products = await productModel.find({ subCategory }).populate("subCategory").select(
+      "-photo"
+    );
+    res.status(200).send({
+      success: true,
+      subCategory,
       products,
     });
   } catch (error) {

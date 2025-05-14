@@ -11,10 +11,12 @@ const UpdateProduct = () => {
   const navigate = useNavigate();
   const params = useParams();
   const [categories, setCategories] = useState([]);
+  const [subCategories, setSubCategories] = useState([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
+  const [subCategory, setSubCategory] = useState("");
   const [quantity, setQuantity] = useState("");
   const [shipping, setShipping] = useState("");
   const [photo, setPhoto] = useState("");
@@ -24,7 +26,7 @@ const UpdateProduct = () => {
   const getSingleProduct = async () => {
     try {
       const { data } = await axios.get(
-        `https://ecommerce-website-beta-inky.vercel.app/api/v1/product/get-product/${params.slug}`
+        ` https://ecommerce-website-beta-inky.vercel.app/api/v1/product/get-product/${params.slug}`
       );
       setName(data.product.name);
       setId(data.product._id);
@@ -33,6 +35,7 @@ const UpdateProduct = () => {
       setQuantity(data.product.quantity);
       setShipping(data.product.shipping);
       setDescription(data.product.description);
+      setSubCategory(data.product.subCategory._id);
     } catch (error) {}
   };
   useEffect(() => {
@@ -42,7 +45,7 @@ const UpdateProduct = () => {
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("https://ecommerce-website-beta-inky.vercel.app/api/v1/category/get-category");
+      const { data } = await axios.get(" https://ecommerce-website-beta-inky.vercel.app/api/v1/category/get-category");
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -50,9 +53,21 @@ const UpdateProduct = () => {
       toast.error("Something wwent wrong in getting catgeory");
     }
   };
+  //get all subcategory
+  const getAllSubCategory = async () => {
+    try {
+      const { data } = await axios.get(" https://ecommerce-website-beta-inky.vercel.app/api/v1/subcategory/get-sub-category");
+      if (data?.success) {
+        setSubCategories(data?.subCategory);
+      }
+    } catch (error) {
+      toast.error("Something went wrong in getting subcategory");
+    }
+  };
 
   useEffect(() => {
     getAllCategory();
+    getAllSubCategory();
   }, []);
 
   //create product function
@@ -66,8 +81,9 @@ const UpdateProduct = () => {
       productData.append("quantity", quantity);
       photo && productData.append("photo", photo);
       productData.append("category", category);
+      productData.append("subCategory", subCategory);
       const { data } = axios.put(
-        `https://ecommerce-website-beta-inky.vercel.app/api/v1/product//update-product/${id}`,
+        ` https://ecommerce-website-beta-inky.vercel.app/api/v1/product//update-product/${id}`,
         productData
       );
       if (data?.success) {
@@ -84,7 +100,7 @@ const UpdateProduct = () => {
     try {
       let answer = window.prompt("Are you sure want to delete this product");
       if (!answer) return;
-      await axios.delete(`https://ecommerce-website-beta-inky.vercel.app/api/v1/product/delete-product/${id}`);
+      await axios.delete(` https://ecommerce-website-beta-inky.vercel.app/api/v1/product/delete-product/${id}`);
       toast.success("product deleted successfully");
       navigate("dashboard/admin/products");
     } catch (error) {
@@ -119,6 +135,23 @@ const UpdateProduct = () => {
                   </Option>
                 ))}
               </Select>
+              <Select
+                variant="borderless"
+                placeholder="Select a subcategory"
+                size="large"
+                showSearch
+                className="form-select mb-3"
+                onChange={(value) => {
+                  setSubCategory(value);
+                }}
+                value={subCategory}
+              >
+                {subCategories?.map((sc) => (
+                  <Option key={sc._id} value={sc._id}>
+                    {sc.name}
+                  </Option>
+                ))}
+              </Select>
               <div className="mb-3">
                 <label className="btn btn-outline-secondary col-md-12">
                   {photo ? photo.name : "Upload Photo"}
@@ -144,7 +177,7 @@ const UpdateProduct = () => {
                 ) : (
                   <div className="text-center">
                     <img
-                      src={`https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-photo/${id}`}
+                      src={` https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-photo/${id}`}
                       alt="product_photo"
                       height={"200px"}
                       className="img img-responsive"

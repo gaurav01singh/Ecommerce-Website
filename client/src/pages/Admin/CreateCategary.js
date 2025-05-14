@@ -17,7 +17,7 @@ const CreateCategary = () => {
     e.preventDefault();
     try {
       const { data } = await axios.put(
-        `https://ecommerce-website-beta-inky.vercel.app/api/v1/category/update-category/${selected._id}`,
+        ` https://ecommerce-website-beta-inky.vercel.app/api/v1/category/update-category/${selected._id}`,
         { name: updatedName }
       );
       if (data.success) {
@@ -36,7 +36,7 @@ const CreateCategary = () => {
   const handleDelete = async (pid) => {
     try {
       const { data } = await axios.delete(
-        `https://ecommerce-website-beta-inky.vercel.app/api/v1/category/delete-category/${pid}`
+        ` https://ecommerce-website-beta-inky.vercel.app/api/v1/category/delete-category/${pid}`
       );
       if (data.success) {
         toast.success("category is deleted");
@@ -52,7 +52,7 @@ const CreateCategary = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("https://ecommerce-website-beta-inky.vercel.app/api/v1/category/create-category", {
+      const { data } = await axios.post(" https://ecommerce-website-beta-inky.vercel.app/api/v1/category/create-category", {
         name,
       });
       if (data?.success) {
@@ -68,7 +68,7 @@ const CreateCategary = () => {
   //get call categrory
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("https://ecommerce-website-beta-inky.vercel.app/api/v1/category/get-category");
+      const { data } = await axios.get(" https://ecommerce-website-beta-inky.vercel.app/api/v1/category/get-category");
       if (data?.success) {
         setCategories(data?.category);
       }

@@ -36,7 +36,7 @@ const HomePage = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        "https://ecommerce-website-beta-inky.vercel.app/api/v1/category/get-category"
+        " https://ecommerce-website-beta-inky.vercel.app/api/v1/category/get-category"
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -46,7 +46,7 @@ const HomePage = () => {
   const getKidsProducts = async () => {
     try {
       const { data } = await axios.get(
-        "https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-category/kids-collection"
+        " https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-category/kids-collection"
       );
       setKidsProducts(data.products);
     } catch (error) {}
@@ -63,7 +63,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-list/${page}`
+        ` https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-list/${page}`
       );
       setLoading(false);
       setProducts(data.products);
@@ -76,7 +76,7 @@ const HomePage = () => {
   const getTotal = async () => {
     try {
       const { data } = await axios.get(
-        "https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-count"
+        " https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-count"
       );
       setTotal(data?.total);
     } catch (error) {}
@@ -92,7 +92,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-list/${page}`
+        ` https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-list/${page}`
       );
       setLoading(false);
       setProducts([...products, ...data?.products]);
@@ -124,7 +124,7 @@ const HomePage = () => {
   const filterProduct = async () => {
     try {
       const { data } = await axios.post(
-        "https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-filters",
+        " https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-filters",
         {
           checked,
           radio,
@@ -209,7 +209,7 @@ const HomePage = () => {
             {kidsProducts?.map((p) => (
               <div className="card" key={p._id} onClick={() => navigate(`/product/${p.slug}`)} >
                 <img
-                  src={`https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-photo/${p._id}`}
+                  src={` https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
                   style={{ objectFit: "scale-down" }}
@@ -254,7 +254,7 @@ const HomePage = () => {
             <div class="card" key={p._id}>
               <div class="card-block">
                 <img
-                  src={`https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-photo/${p._id}`}
+                  src={` https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
                   style={{

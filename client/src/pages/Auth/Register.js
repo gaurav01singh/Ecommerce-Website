@@ -16,7 +16,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://ecommerce-website-beta-inky.vercel.app/api/v1/auth/register", {
+      const res = await axios.post(" https://ecommerce-website-beta-inky.vercel.app/api/v1/auth/register", {
         name,
         email,
         password,

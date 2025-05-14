@@ -9,6 +9,7 @@ import {
   getProductController,
   getSingleProductController,
   productCategoryController,
+  productSubCategoryController,
   productCountController,
   productFiltersController,
   productListController,
@@ -45,6 +46,7 @@ router.get("/product-list/:page", productListController);
 router.get("/search/:keyword", searchProductController);
 router.get("/related-product/:pid/:cid", realtedProductController);
 router.get("/product-category/:slug", productCategoryController);
+router.get("/product-sub-category/:slug", productSubCategoryController);
 //payment
 //token
 router.get("/braintree/token", braintreeTokenController);
