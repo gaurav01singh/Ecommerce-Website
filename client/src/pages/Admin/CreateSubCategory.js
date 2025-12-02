@@ -14,6 +14,7 @@ const CreateSubCategory = () => {
     const [selected, setSelected] = useState(null);
     const [updatedName, setUpdatedName] = useState("");
     const [categoryId, setCategoryId] = useState("");
+    const [keyword, setKeyword] = useState("");
 
     const handleUpdate = async (e) => {
         e.preventDefault();
@@ -28,6 +29,7 @@ const CreateSubCategory = () => {
                 setUpdatedName("");
                 setVisible(false);
                 getAllCategory();
+                getAllSubCategory(); // Refresh subcategories
             } else {
                 toast.error(data.message);
             }
@@ -44,6 +46,7 @@ const CreateSubCategory = () => {
             if (data.success) {
                 toast.success("category is deleted");
                 getAllCategory();
+                getAllSubCategory(); // Refresh subcategories
             } else {
                 toast.error(data.message);
             }
@@ -61,6 +64,7 @@ const CreateSubCategory = () => {
             });
             if (data?.success) {
                 toast.success(data.message);
+                getAllSubCategory(); // Refresh subcategories
             } else {
                 toast.error(data.message);
             }
@@ -116,41 +120,54 @@ const CreateSubCategory = () => {
                                 categories={categories}
                             />
                         </div>
-                        <div className="d-flex flex-column">
-                            {categories?.map((category) => (
-                                <div key={category._id} className="mb-4">
-                                    <h5 className="text-primary">{category.name}</h5>
-                                    <div className="d-flex flex-wrap">
-                                        {subCategories
-                                            ?.filter((sub) => sub.categoryId._id === category._id)
-                                            .map((sub) => (
-                                                <div
-                                                    key={sub._id}
-                                                    className="alert alert-primary me-2"
-                                                    style={{ cursor: "pointer" }}
-                                                >
-                                                    {sub.name}
+                        <div className="w-75">
+                            <input
+                                type="search"
+                                className="form-control mb-4"
+                                placeholder="Search Sub Category..."
+                                value={keyword}
+                                onChange={(e) => setKeyword(e.target.value)}
+                            />
+                            <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {subCategories
+                                        ?.filter((c) => c.name.toLowerCase().includes(keyword.toLowerCase()))
+                                        .map((c) => (
+                                            <tr key={c._id}>
+                                                <td>{c.name}</td>
+                                                <td>{c.categoryId?.name}</td>
+                                                <td>
                                                     <button
                                                         className="btn btn-primary ms-2"
                                                         onClick={() => {
                                                             setVisible(true);
-                                                            setUpdatedName(sub.name);
-                                                            setSelected(sub);
+                                                            setUpdatedName(c.name);
+                                                            setSelected(c);
+                                                            setCategoryId(c.categoryId?._id);
                                                         }}
                                                     >
                                                         Edit
                                                     </button>
                                                     <button
                                                         className="btn btn-danger ms-2"
-                                                        onClick={() => handleDelete(sub._id)}
+                                                        onClick={() => {
+                                                            handleDelete(c._id);
+                                                        }}
                                                     >
                                                         Delete
                                                     </button>
-                                                </div>
-                                            ))}
-                                    </div>
-                                </div>
-                            ))}
+                                                </td>
+                                            </tr>
+                                        ))}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

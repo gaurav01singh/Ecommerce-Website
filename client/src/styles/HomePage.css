@@ -111,7 +111,6 @@
 /* Filters Panel */
 .filter-btn {
   display: block;
-  /* Hidden on desktop */
   position: fixed;
   bottom: 30px;
   right: 30px;
