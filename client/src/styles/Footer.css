@@ -1,31 +1,48 @@
-/* Style for the image */
-.about-image {
-    width: 100%;
-    max-width: 400px;
-    /* Adjust max-width as needed */
-    height: auto;
-    margin-bottom: 20px;
-    /* Add some space below the image */
+.footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: var(--spacing-xl) 0;
+    margin-top: auto;
+    /* Push to bottom if flex container */
+    border-top: 4px solid var(--primary-color);
 }
 
-/* Style for the text content */
-.about-text {
-    text-align: justify;
-    font-size: 16px;
-    line-height: 1.6;
-    /* Adjust line height for better readability */
+.footer h4 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-md);
+    color: #e0e0e0;
 }
 
-/* Style for the container */
-.about-container {
-    padding: 20px;
-    /* Add padding around the content */
+.footer p {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-md);
 }
 
-/* Media query for responsiveness */
+.footer a {
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+    text-transform: capitalize;
+}
+
+.footer a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Responsive Footer */
 @media (max-width: 768px) {
-    .about-image {
-        max-width: 100%;
-        /* Make image responsive on smaller screens */
+    .footer {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .footer p {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-sm);
     }
 }

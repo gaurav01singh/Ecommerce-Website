@@ -137,77 +137,90 @@ const HomePage = () => {
   return (
     <Layout title={"Shopy - Best offers "}>
       {/* banner image */}
-      <div className="css-carousel">
-  <div className="carousel-container">
-    {banners.map((banner, index) => (
-      <div className="carousel-slide" key={index}>
-        <img
-          src={banner}
-          className="banner-img"
-          alt={`banner-${index}`}
-          width={"100%"}
-        />
+      <div class="css-carousel carousel-fade-left carousel-fade-right">
+        <div class="carousel-container">
+          {banners.map((banner, index) => (
+            <div class="carousel-slide" key={index}>
+              <img src={banner} class="banner-img" alt={`banner-${index}`} />
+            </div>
+          ))}
+        </div>
+
+        <div class="carousel-indicators">
+          {banners.map((_, index) => (
+            <div
+              key={index}
+              class={`carousel-indicator ${index === 0 ? "active" : ""}`}
+            ></div>
+          ))}
+        </div>
+
+        <div class="carousel-controls">
+          <button class="carousel-btn prev"></button>
+          <button class="carousel-btn next"></button>
+        </div>
       </div>
-    ))}
-  </div>
-</div>
-          <button
-            className={`btn btn-primary filter-btn ${showFilters ? "show" : ""}`}
-            onClick={() => setShowFilters(!showFilters)}
-          >
-            {showFilters ? "✖ Close Filters" : "☰ Filters"}
-          </button>
+
+      <button
+        className={`filter-btn ${showFilters ? "show" : ""}`}
+        onClick={() => setShowFilters(!showFilters)}
+      >
+        {showFilters ? "✖ Close Filters" : "☰ Filters"}
+      </button>
       {/* banner image */}
       <div className="container-fluid row mt-3 home-page">
         {/* <div className="filters"> */}
-          {/* Button to toggle filters */}
-          {/* Floating Button for Filters */}
-            
+        {/* Button to toggle filters */}
+        {/* Floating Button for Filters */}
 
-          {/* Filters */}
-          <div className={`filters-panel ${showFilters ? "show" : ""}`}>
-            <div className="d-flex justify-content-between align-items-center">
-              <h4 className="text-center">Filters</h4>
-              <button
-                className="btn btn-danger"
-                onClick={() => setShowFilters(false)}
-              >
-                ✖
-              </button>
-              </div>
-            <div className="d-flex flex-column">
-              {categories?.map((c) => (
-                <Checkbox
-                  key={c._id}
-                  onChange={(e) => handleFilter(e.target.checked, c._id)}
-                >
-                  {c.name}
-                </Checkbox>
-              ))}
-            </div>
-            <h4 className="text-center mt-4">Filter By Price</h4>
-            <div className="d-flex flex-column">
-              <Radio.Group onChange={(e) => setRadio(e.target.value)}>
-                {Prices?.map((p) => (
-                  <div key={p._id}>
-                    <Radio value={p.array}>{p.name}</Radio>
-                  </div>
-                ))}
-              </Radio.Group>
-            </div>
+        {/* Filters */}
+        <div className={`filters-panel ${showFilters ? "show" : ""}`}>
+          <div className="d-flex justify-content-between align-items-center">
+            <h4 className="text-center">Filters</h4>
             <button
               className="btn btn-danger"
-              onClick={() => window.location.reload()}
+              onClick={() => setShowFilters(false)}
             >
-              RESET FILTERS
+              ✖
             </button>
           </div>
+          <div className="d-flex flex-column">
+            {categories?.map((c) => (
+              <Checkbox
+                key={c._id}
+                onChange={(e) => handleFilter(e.target.checked, c._id)}
+              >
+                {c.name}
+              </Checkbox>
+            ))}
+          </div>
+          <h4 className="text-center mt-4">Filter By Price</h4>
+          <div className="d-flex flex-column">
+            <Radio.Group onChange={(e) => setRadio(e.target.value)}>
+              {Prices?.map((p) => (
+                <div key={p._id}>
+                  <Radio value={p.array}>{p.name}</Radio>
+                </div>
+              ))}
+            </Radio.Group>
+          </div>
+          <button
+            className="btn btn-danger"
+            onClick={() => window.location.reload()}
+          >
+            RESET FILTERS
+          </button>
+        </div>
         {/* </div> */}
         <div className="Kids-section">
           <h1 className="text ">Best Products For Kids</h1>
           <div className=" Products-section ">
             {kidsProducts?.map((p) => (
-              <div className="card" key={p._id} onClick={() => navigate(`/product/${p.slug}`)} >
+              <div
+                className="card"
+                key={p._id}
+                onClick={() => navigate(`/product/${p.slug}`)}
+              >
                 <img
                   src={` https://ecommerce-website-beta-inky.vercel.app/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
@@ -216,30 +229,30 @@ const HomePage = () => {
                 />
                 <div className="card-body">
                   <h5 className="card-title">{p.name}</h5>
-                  
+
                   <p className="card-text">
                     {p.description.substring(0, 60)}...
                   </p>
                   <div className="d-flex align-items-center justify-content-center">
-                  <h5 className="card-title card-price">
-                    {p.price.toLocaleString("en-US", {
-                      style: "currency",
-                      currency: "INR",
-                    })}
-                  </h5>
-                  <button
-                    className="btn btn-dark ms-1"
-                    onClick={() => {
-                      setCart([...cart, p]);
-                      localStorage.setItem(
-                        "cart",
-                        JSON.stringify([...cart, p])
-                      );
-                      toast.success("Item Added to cart");
-                    }}
-                  >
-                    ADD TO CART
-                  </button>
+                    <h5 className="card-title card-price">
+                      {p.price.toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "INR",
+                      })}
+                    </h5>
+                    <button
+                      className="btn btn-dark"
+                      onClick={() => {
+                        setCart([...cart, p]);
+                        localStorage.setItem(
+                          "cart",
+                          JSON.stringify([...cart, p])
+                        );
+                        toast.success("Item Added to cart");
+                      }}
+                    >
+                      ADD TO CART
+                    </button>
                   </div>
                 </div>
               </div>
@@ -249,7 +262,7 @@ const HomePage = () => {
       </div>
       <div className="container-fluid row mt-3 home-page">
         <h1 className="text-center">All Products</h1>
-        <div className="d-flex flex-wrap justify-content-center align-items-center">
+        <div className="Products-section">
           {products?.map((p) => (
             <div class="card" key={p._id}>
               <div class="card-block">
@@ -279,13 +292,13 @@ const HomePage = () => {
                 <div className="card m-2">
                   <div className="card-name-price">
                     <button
-                      className="btn btn-info ms-1"
+                      className="btn btn-info "
                       onClick={() => navigate(`/product/${p.slug}`)}
                     >
                       More Details
                     </button>
                     <button
-                      className="btn btn-dark ms-1"
+                      className="btn btn-dark"
                       onClick={() => {
                         setCart([...cart, p]);
                         localStorage.setItem(
